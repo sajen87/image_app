@@ -8,4 +8,4 @@ export const routes = [
     {path: '/fileselector', component: FileSelector},
     {path: '/', component: Login}
 
-    ];
+];

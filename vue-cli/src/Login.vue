@@ -1,6 +1,10 @@
 <template>
     <div class="col-3">
+
         <h2>Why you so serious</h2>
+
+        <h1 v-on:click="logged">Kliknij {{ status }}</h1>
+
         <form @submit.prevent="login">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
@@ -29,24 +33,32 @@
 <script>
 
     export default {
-        props: ['false'],
-        data: function () {
+        // props: {
+        //     status: {
+        //         type: boolean,
+        //         required: true
+        //     }},
+        data() {
             return {
                 form: {
                     userEmail: '',
                     password: ''
                 },
-                name: "login",
                 userEmail: "test@test.com",
                 pass: "1234",
+                status: false,
 
             }
         },
         methods: {
+            logged() {
+                this.status = true;
+                this.$emit('logged', this.status);
+            },
             login() {
                 if (this.form.userEmail === this.userEmail && this.form.password === this.pass) {
-                    console.log(this.props);
-                    alert("dobre haslo");
+                    this.$emit('logged', test);
+                    console.log("dobre haslo");
 
                 }
                 else {
