@@ -3,8 +3,6 @@
 
         <h2>Why you so serious</h2>
 
-        <h1 v-on:click="logged">Kliknij {{ status }}</h1>
-
         <form @submit.prevent="login">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
@@ -33,11 +31,6 @@
 <script>
 
     export default {
-        // props: {
-        //     status: {
-        //         type: boolean,
-        //         required: true
-        //     }},
         data() {
             return {
                 form: {
@@ -51,15 +44,10 @@
             }
         },
         methods: {
-            logged() {
-                this.status = true;
-                this.$emit('logged', this.status);
-            },
             login() {
                 if (this.form.userEmail === this.userEmail && this.form.password === this.pass) {
-                    this.$emit('logged', test);
-                    console.log("dobre haslo");
-
+                    this.status = true;
+                    this.$emit('logged', this.status);
                 }
                 else {
                     alert("zle haslo")
