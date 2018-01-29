@@ -1,11 +1,16 @@
 <template>
-    <div>
-        <hr>
-        <h3>Lista dostępnych zdjęć:</h3>
-        <button class="btn btn-primary" @click="fetchData()">Rozwin liste zdjec</button>
-        <ul>
-            <li v-for="pic in pics" @click.prevent="sendFile(pic)"><a :href="pic.url">{{ pic.title}}</a></li>
-        </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-primary" @click="fetchData()">Click for pic list</button>
+                <ul>
+                    <li v-for="pic in pics" @click.prevent="sendFile(pic)"><a :href="pic.url">{{ pic.title}}</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+
     </div>
 
 </template>
@@ -15,7 +20,8 @@
     export default {
         data: function () {
             return {
-                pics: []
+                pics: [],
+                pictureNumber: 5
             }
         },
         methods:
@@ -30,8 +36,8 @@
 
                             var resultArray = [];
 
-                            for (var key in data ) {
-                                if(key < 15) {
+                            for (var key in data) {
+                                if (key < this.pictureNumber) {
                                     resultArray.push(data[key]);
                                 }
 
@@ -44,11 +50,6 @@
 </script>
 
 <style scoped>
-
-    div {
-        text-align: center;
-    }
-
     .btn {
         margin: 50px 0;
     }

@@ -1,5 +1,6 @@
 <template>
     <div class="container col-sm-6">
+
         <div class="input-group mb-3" v-if="!image">
             <div class="input-group-prepend">
                 <span class="input-group-text">Select an image</span>
@@ -10,11 +11,10 @@
                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
             </div>
 
-
         </div>
         <div v-else>
-            <img :src="image"/>
-            <button type="button" class="btn btn-danger" @click="removeImage">Remove image</button>
+            <!--<img :src="image"/>-->
+            <button type="button" class="btn btn-danger" @click="removeImage">Change picture</button>
         </div>
     </div>
 </template>
@@ -42,10 +42,17 @@
                 var reader = new FileReader();
                 var vm = this;
 
+
                 reader.onload = (e) => {
                     vm.image = e.target.result;
+
+                    this.$emit('updatePic', { url:  e.target.result, title: file.name });
+
                 };
                 reader.readAsDataURL(file);
+
+
+
             },
             removeImage: function (e) {
                 this.image = '';
@@ -57,9 +64,8 @@
 
 <style scoped>
     img {
-        width: 50%;
-        margin: auto;
+        width: 80%;
         display: block;
-        margin-bottom: 10px;
+        margin: auto auto 10px;
     }
 </style>

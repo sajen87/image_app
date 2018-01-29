@@ -1,9 +1,9 @@
 <template>
     <div class="container col-6">
-        <h1>LPP Image App</h1>
+        <h1>Image App</h1>
 
         <b-card :title="file.title"
-                :img-src="file.url"
+                :img-src="file.name || file.url"
                 img-alt="Image"
                 img-top
                 tag="article"

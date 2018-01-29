@@ -6,7 +6,7 @@
         <hr>
         <pic-window v-if="isLoggedIn" :file="file"></pic-window>
         <file-selector v-if="isLoggedIn" @updatePic="updatePicEventHandler"></file-selector>
-        <upload-image v-if="isLoggedIn"></upload-image>
+        <upload-image v-if="isLoggedIn" @updatePic="updatePicEventHandler"></upload-image>
     </div>
 </template>
 
@@ -18,8 +18,8 @@
 
     export default {
         components: {
-            UploadImage,
-            PicWindow, FileSelector, Login},
+            UploadImage, PicWindow, FileSelector, Login},
+
         data() {
             return {
                 file: {},
