@@ -1,7 +1,7 @@
 <template>
     <div class="container col-6">
         <h1>LPP Image App</h1>
-        <hr>
+
         <b-card :title="file.title"
                 :img-src="file.url"
                 img-alt="Image"
@@ -22,4 +22,8 @@
         },
     }
 </script>
+
+<style scoped>
+
+</style>
 

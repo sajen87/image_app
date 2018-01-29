@@ -1,7 +1,9 @@
 <template>
-    <div class="col-3">
+    <div class="container col-3">
 
+        <transition appear>
         <h2>Why you so serious</h2>
+        </transition>
 
         <form @submit.prevent="login">
             <div class="form-group">
@@ -24,6 +26,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
     </div>
 
 </template>
@@ -58,8 +61,18 @@
 </script>
 
 <style scoped>
+
+    .container {
+
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     h2 {
         text-align: center;
         color: darkgrey;
     }
+
 </style>
